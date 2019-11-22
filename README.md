@@ -1,7 +1,7 @@
 # installpackage
 a package manager that installs programs to /opt
 # download the script
-# wget https://raw.githubusercontent.com/snotpocket/installpackage/master/installpackage
+wget https://raw.githubusercontent.com/snotpocket/installpackage/master/installpackage
 # make the script executable
 # chmod  +x ./installpackage
 # copy the script
