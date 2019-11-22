@@ -1,0 +1,37 @@
+#!/bin/bash
+usage() {
+cat << "EOF"
+usage: [-ir]
+installpackage: a package manager that installs program to /opt
+--install installs packages
+--remove removes packages
+EOF
+}
+while [ "$1" != "" ]
+do
+case $1 in 
+-r|--remove) shift
+remove=$1
+;;
+-i|--install) shift
+filename=$1
+;;
+-h|--help)usage;;
+*)echo error no such option $1
+exit 1
+esac
+shift
+done
+while [ "$filename" != "" ]
+do
+tar --directory=/opt -xvf  $filename &>/var/packages/$filename
+break
+done
+while [ "$remove" != "" ]
+do
+cd /opt
+test -d /var/packages && echo -n || mkdir /var/packages
+test -f  /var/packages/$remove &&  rm -rf $(cat /var/packages/$remove) || echo no package $remove exist 
+test -f /var/packages/$remove &&  rm  /var/packages/$remove || echo -n 
+break
+done
