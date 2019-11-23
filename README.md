@@ -1,5 +1,6 @@
 # installpackage
 a package manager that installs programs to /opt
+# recommended way goto releases and download the latest version
 # download the script
 wget https://raw.githubusercontent.com/snotpocket/installpackage/master/installpackage
 # make the script executable
